@@ -1,0 +1,40 @@
+<%- include('includes/head.ejs')  %>
+</head>
+  <body>
+    <%- include('includes/navigation.ejs')  %>
+
+    <main>
+      <% if(prods.length > 0) { %>
+      <h1>My Products</h1>
+
+      <div class="grid">
+        <% for (let product of prods) { %>
+        <article class="card product-item">
+          <header class="card__header">
+            <h1 class="product__title"><%=product.title %></h1>
+          </header>
+
+          <div class="card__image">
+            <img
+              src="https://prodimage.images-bn.com/lf?set=key%5Bresolve.pixelRatio%5D,value%5B1%5D&set=key%5Bresolve.width%5D,value%5B600%5D&set=key%5Bresolve.height%5D,value%5B10000%5D&set=key%5Bresolve.imageFit%5D,value%5Bcontainerwidth%5D&set=key%5Bresolve.allowImageUpscaling%5D,value%5B0%5D&set=key%5Bresolve.format%5D,value%5Bwebp%5D&source=url%5Bhttps://prodimage.images-bn.com/pimages/9781668047071_p0_v2_s600x595.jpg%5D&scale=options%5Blimit%5D,size%5B600x10000%5D&sink=format%5Bwebp%5D"
+              alt=""
+            />
+          </div>
+
+          <div class="card__content">
+            <h2 class="product__price">$12.99</h2>
+            <p class="product__description">A Good Book</p>
+          </div>
+
+          <div class="card__actions">
+            <button class="btn">Add to Cart</button>
+          </div>
+        </article>
+        <%} %>
+      </div>
+
+      <% } else { %>
+      <h1>No Products Found</h1>
+      <% } %>
+    </main>
+<%- include('includes/end.ejs') %>
