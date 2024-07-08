@@ -2,10 +2,12 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const handlebars = require('express-handlebars');
 
 const app = express();
 
-app.set('view engine', 'pug');
+app.engine('hbs', handlebars.engine);
+app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 const rootDir = require('./util/path');
