@@ -1,9 +1,16 @@
 [
   {
     "id": "123456",
-    "title": "A Book",
-    "imageUrl": "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg",
-    "description": "This is an awesome book!",
-    "price": "19"
+    "title": " A Book ",
+    "imageUrl": " https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg ",
+    "description": "This is an awesome book! You Should read it.",
+    "price": "19.99"
+  },
+  {
+    "id": "0.11557578692166781",
+    "title": " Nike Dunk Low ",
+    "imageUrl": " https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/af53d53d-561f-450a-a483-70a7ceee380f/dunk-low-womens-shoes-ppQwKZ.png ",
+    "description": "Nike Dunk Low Black and White. Comfy and Looks Good. ",
+    "price": "99.98"
   }
 ]
