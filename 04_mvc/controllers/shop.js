@@ -1,6 +1,5 @@
 const Product = require('../models/product');
 const Cart = require('../models/cart');
-const { where } = require('sequelize');
 
 exports.getProducts = (req, res, next) => {
   Product.findAll()
@@ -42,23 +41,30 @@ exports.getIndex = (req, res, next) => {
 
 exports.getCart = (req, res, next) => {
   Cart.getProducts((cart) => {
-    Product.fetchAll((products) => {
-      const cartProducts = [];
-      for (product of products) {
-        const cartProductData = cart.products.find(
-          (prod) => prod.id === product.id
-        );
-        if (cart.products.find((prod) => prod.id === product.id)) {
-          cartProducts.push({ productData: product, qty: cartProductData.qty });
+    Product.findAll()
+      .then((products) => {
+        const cartProducts = [];
+        for (const product of products) {
+          const cartProductData = cart.products.find(
+            (prod) => prod.id === product.id
+          );
+          if (cartProductData) {
+            cartProducts.push({
+              productData: product,
+              qty: cartProductData.qty,
+            });
+          }
         }
-      }
 
-      res.render('shop/cart', {
-        path: '/cart',
-        pageTitle: 'Your Cart',
-        products: cartProducts,
+        res.render('shop/cart', {
+          path: '/cart',
+          pageTitle: 'Your Cart',
+          products: cartProducts,
+        });
+      })
+      .catch((err) => {
+        console.log('Error fetching products:', err);
       });
-    });
   });
 };
 
